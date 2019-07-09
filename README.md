@@ -1,6 +1,6 @@
-# Service Worker TypeScript to JavaScript Transpiler
+# [Service Worker TypeScript to JavaScript Transpiler](https://tomashubelbauer.github.io/sw-js-to-ts-transpiler)
 
-[**DEMO**](https://tomashubelbauer.github.io/sw-js-to-ts-transpiler)
+[**DEMO**](https://tomashubelbauer.github.io/sw-js-to-ts-transpiler-demo)
 
 This is a TypeScript to JavaScript on-the-fly transpiler service worker script.
 
