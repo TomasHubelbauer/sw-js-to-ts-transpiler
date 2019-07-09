@@ -6,7 +6,7 @@ self.addEventListener('fetch', function(event) {
 
 async function intercept(request) {
   const response = await fetch(request);
-  if (!request.url.endsWith('.ts') || !response.ok) {
+  if (!(request.url.endsWith('.ts') && request.url.endsWith('.tsx')) || !response.ok) {
     return response;
   }
   
