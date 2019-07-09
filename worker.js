@@ -12,7 +12,7 @@ async function intercept(request) {
   
   const text = await response.text();
   try {
-    return new Response(ts.transpileModule(text, { compilerOptions: { target: 'esnext' } }).outputText, {
+    return new Response(ts.transpileModule(text, { compilerOptions: { target: 'esnext', jsx: 'react' } }).outputText, {
       status: response.status,
       statusText: response.statusText,
       headers: {
