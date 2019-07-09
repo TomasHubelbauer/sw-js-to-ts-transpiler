@@ -18,4 +18,15 @@ await navigator.serviceWorker.register('worker.js?' + btoa(text));
 eval(atob(self.location.search.substring(1)));
 ```
 
-Any request to a TypeScript file will then be transpiled on the fly.
+Any request to a TypeScript file will then be transpiled on the fly:
+
+```js
+const response = fetch('code.ts');
+const text = await response.text();
+// `text` is now the transpiled JavaScript!
+```
+
+```html
+<script src="code.ts"></script>
+<!-- The transpiled JavaScript is executed by the `script` tag! -->
+```
