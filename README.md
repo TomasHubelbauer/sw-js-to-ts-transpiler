@@ -31,4 +31,7 @@ const text = await response.text();
 ```html
 <script src="code.ts"></script>
 <!-- The transpiled JavaScript is executed by the `script` tag! -->
+
+<script src="code.ts" type="module"></script>
+<!-- ESM scripts also go through the service worker 👌 -->
 ```
