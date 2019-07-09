@@ -1,4 +1,4 @@
-self.importScripts('https://unpkg.com/typescript/lib@3.5.3/typescript.js');
+self.importScripts('https://unpkg.com/typescript@3.5.3/lib/typescript.js');
 
 self.addEventListener('fetch', function(event) {
   event.respondWith(intercept(event.request));
