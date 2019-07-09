@@ -10,14 +10,15 @@ async function intercept(request) {
     return response;
   }
   
+  const text = await response.text();
   try {
-    return new Response(ts.transpileModule(await response.text(), { compilerOptions: { target: 'esnext' } }).outputText, {
+    return new Response(ts.transpileModule(text, { compilerOptions: { target: 'esnext' } }).outputText, {
       status: response.status,
       statusText: response.statusText,
       headers: {
         ...response.headers,
         // Make the browser know this is now a JavaScript file
-        'Content-Type': 'text/javascript',
+        'Content-Type': 'application/javascript',
       }
     });
   } catch (error) {
