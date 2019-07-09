@@ -1,4 +1,4 @@
-# Service Worker Intercept
+# Service Worker TypeScript to JavaScript Transpiler
 
 [**DEMO**](https://tomashubelbauer.github.io/sw-intercept)
 
