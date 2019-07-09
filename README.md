@@ -18,6 +18,8 @@ await navigator.serviceWorker.register('worker.js?' + btoa(text));
 eval(atob(self.location.search.substring(1)));
 ```
 
+---
+
 Any request to a TypeScript file will then be transpiled on the fly:
 
 ```js
