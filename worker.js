@@ -1,6 +1,12 @@
 self.importScripts('https://unpkg.com/typescript@3.5.3/lib/typescript.js');
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('install', async () => {
+  for (let client of await clients.matchAll()) {
+    console.log('client', client);
+  }
+});
+
+self.addEventListener('fetch', event => {
   event.respondWith(intercept(event.request));
 });
 
@@ -10,9 +16,13 @@ async function intercept(request) {
     return response;
   }
   
-  const text = await response.text();
+  // TODO: Check if `result.diagnostics` is non-empty and if yes bail?
   try {
-    return new Response(ts.transpileModule(text, { compilerOptions: { target: 'esnext', jsx: 'react' } }).outputText, {
+    const typescript = await response.text();
+    const compilerOptions = { target: 'esnext', jsx: 'react' };
+    const result = ts.transpileModule(text, { compilerOptions });
+    const javascript = result.outputText;
+    return new Response(javascript, {
       status: response.status,
       statusText: response.statusText,
       headers: {
